@@ -22,7 +22,7 @@ app.get('/', function(req, res) {
 
 
 app.get('/leaderboard', function(req, res) {
-    leaderboard.find().exec(function(err, leaderboard) {
+    leaderboard.find().sort({score: -1}).exec(function(err, leaderboard) {
         if (err) {
             res.send('err')
         } else {
